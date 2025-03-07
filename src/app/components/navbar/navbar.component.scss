@@ -1,0 +1,36 @@
+/* Estilos para la navbar */
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+}
+
+.offcanvas {
+  width: 250px;
+}
+
+.offcanvas-body {
+  padding: 1rem;
+}
+
+.nav-link {
+  transition: background-color 0.3s ease, padding-left 0.3s ease; /* Añadido padding-left para un pequeño "desplazamiento" */
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Color de fondo suave */
+    padding-left: 10px; /* Desplazamiento para efecto visual */
+  }
+}
+
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Ajustes de padding para asegurar que el contenido no se superponga */
+.container-fluid {
+  padding-top: 56px; /* Ajusta este valor según la altura de tu navbar */
+}
+
+@media (min-width: 992px) {
+  .container-fluid {
+    padding-top: 72px;
+  }
+}

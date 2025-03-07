@@ -1,0 +1,145 @@
+<div class="container-fluid py-4">
+  <h1 class="h2 mb-4 text-primary fw-bold text-center">SubnorPanel de Administración</h1>
+
+  <div class="row g-4 mb-5">
+    <!-- Noticias Card -->
+    <div class="col-xl-3 col-md-6">
+      <div class="card bg-primary text-white h-100 shadow-sm hover-card" [routerLink]="['/news']">
+        <div class="card-body">
+          <div class="d-flex align-items-center justify-content-between">
+            <div>
+              <h5 class="fw-bold mb-1">Noticias</h5>
+              <p class="mb-0">Gestionar Noticias</p>
+            </div>
+            <i class="fas fa-newspaper fa-3x opacity-50"></i>
+          </div>
+        </div>
+        <div class="card-footer bg-primary border-0 py-3">
+          <span class="small">Ver detalles</span>
+          <i class="fas fa-arrow-circle-right ms-2"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Artículos Card -->
+    <div class="col-xl-3 col-md-6">
+      <div class="card bg-success text-white h-100 shadow-sm hover-card" [routerLink]="['/articles']">
+        <div class="card-body">
+          <div class="d-flex align-items-center justify-content-between">
+            <div>
+              <h5 class="fw-bold mb-1">Artículos</h5>
+              <p class="mb-0">Gestionar Artículos</p>
+            </div>
+            <i class="fas fa-file-alt fa-3x opacity-50"></i>
+          </div>
+        </div>
+        <div class="card-footer bg-success border-0 py-3">
+          <span class="small">Ver detalles</span>
+          <i class="fas fa-arrow-circle-right ms-2"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Imágenes Card -->
+    <div class="col-xl-3 col-md-6">
+      <div class="card bg-info text-white h-100 shadow-sm hover-card" [routerLink]="['/images']">
+        <div class="card-body">
+          <div class="d-flex align-items-center justify-content-between">
+            <div>
+              <h5 class="fw-bold mb-1">Imágenes</h5>
+              <p class="mb-0">Gestionar Galería</p>
+            </div>
+            <i class="fas fa-images fa-3x opacity-50"></i>
+          </div>
+        </div>
+        <div class="card-footer bg-info border-0 py-3">
+          <span class="small">Ver detalles</span>
+          <i class="fas fa-arrow-circle-right ms-2"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Videos Card -->
+    <div class="col-xl-3 col-md-6">
+      <div class="card bg-warning text-white h-100 shadow-sm hover-card" [routerLink]="['/videos']">
+        <div class="card-body">
+          <div class="d-flex align-items-center justify-content-between">
+            <div>
+              <h5 class="fw-bold mb-1">Videos</h5>
+              <p class="mb-0">Gestionar Videos</p>
+            </div>
+            <i class="fas fa-video fa-3x opacity-50"></i>
+          </div>
+        </div>
+        <div class="card-footer bg-warning border-0 py-3">
+          <span class="small">Ver detalles</span>
+          <i class="fas fa-arrow-circle-right ms-2"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <!-- Resumen de Actividad -->
+    <div class="col-lg-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-header bg-light py-3">
+          <h6 class="m-0 fw-bold text-primary">Resumen de Actividad</h6>
+        </div>
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Noticias publicadas
+              <span class="badge bg-primary rounded-pill">14</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Artículos creados
+              <span class="badge bg-primary rounded-pill">8</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Imágenes subidas
+              <span class="badge bg-primary rounded-pill">23</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tareas Pendientes -->
+    <div class="col-lg-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-header bg-light py-3">
+          <h6 class="m-0 fw-bold text-primary">Tareas Pendientes</h6>
+        </div>
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="task1">
+                <label class="form-check-label" for="task1">
+                  Actualizar sección de noticias
+                </label>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="task2">
+                <label class="form-check-label" for="task2">
+                  Revisar nuevos artículos
+                </label>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="task3">
+                <label class="form-check-label" for="task3">
+                  Optimizar imágenes de la galería
+                </label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

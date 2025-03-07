@@ -1,0 +1,92 @@
+<div class="container-fluid mt-3">
+  <h2 class="text-primary mb-4">Gestión de Artículos</h2>
+
+  <!-- Barra de acciones -->
+  <div class="row g-3 mb-4">
+    <div class="col-md-4 col-sm-6">
+      <select class="form-select" [(ngModel)]="selectedCategory" (change)="onCategoryChange()">
+        <option value="">Todas las categorías</option>
+        <option *ngFor="let category of categories" [value]="category">{{ category | translateArticleCategory  }}</option>
+      </select>
+    </div>
+    <div class="col-md-5 col-sm-6">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Buscar artículos..." [(ngModel)]="searchQuery"
+          (keyup.enter)="onSearch()" />
+        <button class="btn btn-outline-secondary" *ngIf="searchQuery" (click)="searchQuery=''; onSearch()">
+          <i class="bi bi-x"></i>
+        </button>
+        <button class="btn btn-info text-white" (click)="onSearch()">
+          Buscar
+        </button>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-12">
+      <button class="btn btn-primary w-100 shadow-sm d-flex align-items-center justify-content-center gap-2" (click)="openArticleDialog()">
+        <i class="bi bi-plus-lg"></i>
+        <span>Nuevo Artículo</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Tabla de artículos -->
+  <div *ngIf="articles && articles.length > 0; else noArticles" class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead class="table-primary">
+        <tr>
+          <th>Título</th>
+          <th>Categoría</th>
+          <th>Estado</th>
+          <th>Fecha</th>
+          <th>Vistas</th>
+          <th>Importancia</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let article of articles">
+          <td>{{ article.title }}</td>
+          <td>{{ article.category  | translateArticleCategory}}</td>
+          <td>
+            <span class="badge" [ngClass]="{
+              'bg-success': article.status === 'active',
+              'bg-warning': article.status === 'inactive'
+            }">{{ article.status }}</span>
+          </td>
+          <td>{{ article.date | date:'short' }}</td>
+          <td>{{ article.views }}</td>
+          <td>{{ article.importance }}</td>
+          <td class="d-flex flex-column flex-sm-row gap-2">
+            <button class="btn btn-sm btn-primary" [routerLink]="['/articles/edit', article._id]">
+              <i class="bi bi-pencil"></i> Editar
+            </button>
+            <button class="btn btn-sm btn-danger" (click)="deleteArticle(article._id)">
+              <i class="bi bi-trash"></i> Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noArticles>
+    <div class="alert alert-info" role="alert">
+      No hay artículos para mostrar. {{ articles === null ? 'Cargando...' : 'Intente cambiar los filtros de búsqueda.' }}
+    </div>
+  </ng-template>
+
+  <!-- Paginador -->
+  <nav *ngIf="articles && articles.length > 0">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button class="page-link" (click)="onPageChange({pageIndex: currentPage - 2, pageSize: pageSize, length: totalArticles})" [disabled]="currentPage === 1">Anterior</button>
+      </li>
+      <li class="page-item">
+        <span class="page-link">{{ currentPage }}</span>
+      </li>
+      <li class="page-item" [class.disabled]="articles.length < pageSize">
+        <button class="page-link" (click)="onPageChange({pageIndex: currentPage, pageSize: pageSize, length: totalArticles})" [disabled]="articles.length < pageSize">Siguiente</button>
+      </li>
+    </ul>
+  </nav>
+</div>

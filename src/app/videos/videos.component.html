@@ -1,0 +1,40 @@
+<div class="container mb-4">
+  <h2 class="text-center">Gestor de Videos</h2>
+
+  <!-- Sección de subida de videos -->
+  <div class="card shadow-sm p-4 mb-4">
+    <div class="d-flex flex-column align-items-center">
+      <label for="video-upload" class="btn btn-outline-primary d-flex align-items-center">
+        <i class="bi bi-cloud-upload me-2"></i> Seleccionar Video
+      </label>
+      <input id="video-upload" type="file" (change)="onFileSelected($event)" accept="video/*" hidden>
+
+      <span *ngIf="selectedFile" class="mt-2 fw-bold text-success">
+        {{ selectedFile!.name }}
+      </span>
+
+      <button class="btn btn-primary mt-3" (click)="uploadVideo()" [disabled]="!selectedFile || isUploading">
+        <span *ngIf="isUploading"><i class="bi bi-arrow-repeat"></i> Subiendo...</span>
+        <span *ngIf="!isUploading"><i class="bi bi-upload"></i> Subir</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Sección de videos subidos (solo si hay videos) -->
+  <div *ngIf="videos.length > 0">
+    <h3 class="text-center">Videos Subidos</h3>
+
+    <div class="row g-3">
+      <div *ngFor="let video of videos" class="col-6 col-md-4 col-lg-3">
+        <div class="card shadow-sm">
+          <video [src]="video.url" controls class="card-img-top" style="height: 150px; object-fit: cover;"></video>
+          <div class="card-body text-center p-2">
+            <button class="btn btn-outline-secondary btn-sm" (click)="copyVideoUrl(video.url)" title="Copiar URL">
+              <i class="bi bi-clipboard"></i> Copiar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

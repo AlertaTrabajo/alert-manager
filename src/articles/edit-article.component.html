@@ -1,0 +1,66 @@
+<div class="container px-2 py-2">
+  <div class="card shadow-lg p-4">
+    <h2 class="mb-4 text-center">Editar Artículo</h2>
+
+    <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label class="form-label">Título</label>
+        <input type="text" class="form-control" formControlName="title">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Contenido</label>
+        <textarea class="form-control" formControlName="content" rows="5"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Categoría</label>
+        <select class="form-control" formControlName="category">
+          <option *ngFor="let category of categories" [value]="category">
+            {{ category }}
+          </option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Estado</label>
+        <select class="form-control" formControlName="status">
+          <option *ngFor="let status of articleStatuses" [value]="status">{{ status }}</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Importancia</label>
+        <input type="number" class="form-control" formControlName="importance" min="1" max="10">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Tags</label>
+        <input type="text" class="form-control" formControlName="tags" placeholder="Separar tags con comas">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Imagen (URL)</label>
+        <input type="text" class="form-control" formControlName="imgUrl" placeholder="URL de la imagen">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Video (URL)</label>
+        <input type="text" class="form-control" formControlName="videoUrl" placeholder="URL del video">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Fecha</label>
+        <input type="datetime-local" class="form-control" formControlName="date">
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-lg text-nowrap shadow-sm" [disabled]="articleForm.invalid">
+        <i class="fas fa-edit me-2"></i>Editar Artículo
+      </button>
+
+      <a routerLink="/articles" class="btn btn-danger btn-lg text-nowrap shadow-sm ms-2">
+        <i class="fas fa-times me-2"></i>Cancelar
+      </a>
+    </form>
+  </div>
+</div>

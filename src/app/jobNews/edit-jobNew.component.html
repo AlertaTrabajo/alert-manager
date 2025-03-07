@@ -1,0 +1,68 @@
+<div class="container px-2 py-2">
+  <div class="card shadow-lg p-4">
+    <h2 class="mb-4 text-center">Editar Noticia</h2>
+
+    <form [formGroup]="jobNewForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label class="form-label">Título</label>
+        <input type="text" class="form-control" formControlName="title">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Subtítulo</label>
+        <input type="text" class="form-control" formControlName="subtitle">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Contenido</label>
+        <textarea class="form-control" formControlName="content" rows="5"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Autor</label>
+        <input type="text" class="form-control" formControlName="author">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Categoría</label>
+        <select class="form-control" formControlName="category">
+          <option *ngFor="let category of categories" [value]="category">{{ category | translateCategory }}</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Tipo de Artículo</label>
+        <select class="form-control" formControlName="jobNewType">
+          <option *ngFor="let type of jobNewTypes" [value]="type">{{ type }}</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Estado</label>
+        <select class="form-control" formControlName="status">
+          <option *ngFor="let status of jobNewStatuses" [value]="status">{{ status }}</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Imagen (URL)</label>
+        <input type="text" class="form-control" formControlName="imageUrl" placeholder="URL de la imagen">
+      </div>
+
+      <!-- Video URL -->
+      <div class="mb-3">
+        <label class="form-label">Video (URL)</label>
+        <input type="text" class="form-control" formControlName="videoUrl" placeholder="URL del video">
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-lg text-nowrap shadow-sm" [disabled]="jobNewForm.invalid">
+        <i class="fas fa-edit me-2"></i>Editar🚀
+      </button>
+
+      <a routerLink="/news" class="btn btn-danger btn-lg text-nowrap shadow-sm ms-2">
+        <i class="fas fa-times me-2"></i>Cancelar
+      </a>
+
+    </form>
+  </div>
+</div>
