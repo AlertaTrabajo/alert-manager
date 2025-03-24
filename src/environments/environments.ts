@@ -1,4 +1,4 @@
 export const environments = {
-   baseUrl: 'https://alerta-trabajo-backend-261918624074.us-central1.run.app',
+   baseUrl: 'https://alerta-trabajo-back.vercel.app',
  // baseUrl: 'http://localhost:3000',
 }
