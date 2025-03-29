@@ -6,7 +6,7 @@
     <div class="col-md-4 col-sm-6">
       <select class="form-select" [(ngModel)]="selectedCategory" (change)="onCategoryChange()">
         <option value="">Todas las categorías</option>
-        <option *ngFor="let category of categories" [value]="category">{{ category | translateCategory }}</option>
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
       </select>
     </div>
     <div class="col-md-5 col-sm-6">
@@ -49,7 +49,7 @@
         <tr *ngFor="let jobNew of jobNews">
           <td>{{ jobNew.title }}</td>
           <td>{{ jobNew.author }}</td>
-          <td>{{ jobNew.category | translateCategory }}</td>
+          <td>{{ jobNew.category  }}</td>
           <td>{{ jobNew.jobNewType }}</td>
           <td>
             <span class="badge" [ngClass]="{

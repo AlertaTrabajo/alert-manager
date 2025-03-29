@@ -9,7 +9,6 @@ import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterLink } from '@angular/router';
 import { EditjobNewComponent } from './edit-jobNew.component';
 import { JobNewFormDialogComponent } from './create-jobNew-form-dialog.component';
-import { TranslateCategoryPipe } from './pipes/translate-category.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,7 @@ import { TranslateCategoryPipe } from './pipes/translate-category.pipe';
     MatChipsModule,
     NgbModule,
     RouterLink,
-    TranslateCategoryPipe
+
   ],
   providers: [
     JobNewsService,
