@@ -1,0 +1,72 @@
+<div class="container my-4 vacation-wrapper">
+  <div *ngIf="!submitted; else resultBlock">
+    <h2 class="text-primary text-center mb-4">Solicitud de Vacaciones</h2>
+    <div class="card shadow-sm p-4">
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="row g-3">
+          <!-- Nombre y DNI -->
+          <div class="col-md-6">
+            <label for="employeeName" class="form-label">Nombre del empleado</label>
+            <input id="employeeName" type="text" class="form-control" formControlName="employeeName" required>
+          </div>
+          <div class="col-md-6">
+            <label for="employeeDNI" class="form-label">DNI</label>
+            <input id="employeeDNI" type="text" class="form-control" formControlName="employeeDNI" required>
+          </div>
+
+          <!-- Fecha de inicio y Empresa -->
+          <div class="col-md-6">
+            <label for="employeeStartDate" class="form-label">Fecha de inicio en la empresa</label>
+            <input id="employeeStartDate" type="date" class="form-control" formControlName="employeeStartDate" required>
+          </div>
+          <div class="col-md-6">
+            <label for="employerCompany" class="form-label">Empresa</label>
+            <input id="employerCompany" type="text" class="form-control" formControlName="employerCompany" required>
+          </div>
+
+          <!-- Fecha inicio y fin vacaciones -->
+          <div class="col-md-6">
+            <label for="vacationStartDate" class="form-label">Fecha inicio vacaciones</label>
+            <input id="vacationStartDate" type="date" class="form-control" formControlName="vacationStartDate" required>
+          </div>
+          <div class="col-md-6">
+            <label for="vacationEndDate" class="form-label">Fecha fin vacaciones</label>
+            <input id="vacationEndDate" type="date" class="form-control" formControlName="vacationEndDate" required>
+          </div>
+
+          <!-- Convenio -->
+          <div class="col-12">
+            <label for="applicableAgreement" class="form-label">Convenio aplicable</label>
+            <input id="applicableAgreement" type="text" class="form-control" formControlName="applicableAgreement" required>
+          </div>
+
+          <!-- Botón -->
+          <div class="col-12 text-center mt-4">
+            <button type="submit" class="btn btn-primary btn-lg" [disabled]="form.invalid">
+              Solicitar vacaciones
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Resultado tras enviar -->
+  <ng-template #resultBlock>
+    <div class="card mt-4 shadow-sm p-4">
+      <h4 class="mb-3 text-success">Solicitud enviada</h4>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Nombre:</strong> {{ result?.employeeName }}</li>
+        <li class="list-group-item"><strong>DNI:</strong> {{ result?.employeeDNI }}</li>
+        <li class="list-group-item"><strong>Fecha de inicio en la empresa:</strong> {{ result?.employeeStartDate | date }}</li>
+        <li class="list-group-item"><strong>Empresa:</strong> {{ result?.employerCompany }}</li>
+        <li class="list-group-item"><strong>Fecha inicio vacaciones:</strong> {{ result?.vacationStartDate | date }}</li>
+        <li class="list-group-item"><strong>Fecha fin vacaciones:</strong> {{ result?.vacationEndDate | date }}</li>
+        <li class="list-group-item"><strong>Convenio aplicable:</strong> {{ result?.applicableAgreement }}</li>
+      </ul>
+      <div class="text-center mt-4">
+        <button class="btn btn-outline-primary" (click)="reset()">Nueva solicitud</button>
+      </div>
+    </div>
+  </ng-template>
+</div>

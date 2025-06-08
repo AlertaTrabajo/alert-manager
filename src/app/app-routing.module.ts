@@ -11,6 +11,7 @@ import { VideosComponent } from './videos/videos.component';
 import { ArticlesManagementComponent } from '../articles/articles-management.component';
 import { CreateArticleFormComponent } from '../articles/create-article-form-dialog.component';
 import { EditArticleComponent } from '../articles/edit-article.component';
+import { VacationRequestComponent } from './reports/vacation-request/vacation-request.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,8 @@ const routes: Routes = [
       // Otras rutas
       { path: 'images', component: ImagesComponent },
       { path: 'videos', component: VideosComponent },
+      { path: 'reports', component: VacationRequestComponent },
+
     ],
   },
   { path: '**', redirectTo: 'dashboard' },

@@ -14,6 +14,7 @@ import { ImagesModule } from './images/images.module';
 import { VideosModule } from './videos/videos.module';
 import { jobNewsModule } from './jobNews/jobNews.module';
 import { ArticlesModule } from '../articles/articles.module';
+import { ReportsModule } from './reports/reports.module';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ArticlesModule } from '../articles/articles.module';
     jobNewsModule,
     ImagesModule,
     VideosModule,
-    ArticlesModule
+    ArticlesModule,
+    ReportsModule
 
   ],
   providers: [
