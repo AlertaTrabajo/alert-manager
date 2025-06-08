@@ -11,6 +11,7 @@ export class ReportsService {
   constructor(private http: HttpClient) {}
 
 generateVacationRequestPdf(data: any) {
+  
   const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   return this.http.post(
